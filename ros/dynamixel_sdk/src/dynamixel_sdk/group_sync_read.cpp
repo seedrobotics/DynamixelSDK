@@ -157,8 +157,10 @@ int GroupSyncRead::txRxPacket()
   int result         = COMM_TX_FAIL;
 
   result = txPacket();
-  if (result != COMM_SUCCESS)
+  if (result != COMM_SUCCESS) {
+	printf("GroupSyncREad::txRxPacket: Failed to TX packet\r\n");
     return result;
+  }
 
   return rxPacket();
 }

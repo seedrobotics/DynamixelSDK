@@ -697,6 +697,8 @@ int Protocol2PacketHandler::readRx(PortHandler *port, uint8_t id, uint16_t lengt
       data[s] = rxpacket[PKT_PARAMETER0 + 1 + s];
     }
     //memcpy(data, &rxpacket[PKT_PARAMETER0+1], length);
+  } else {
+	  printf("readRX: Failed waiting for reply from ID %d\r\n", id);
   }
 
   free(rxpacket);
